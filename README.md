@@ -1,8 +1,14 @@
 # AI Lab Tasks
 
-**Name:** Moiez Ali Khan
+**Name:** Moiez Ali Khan 
+
+
 **Roll Number:** SU92-BSAIM-F25-250
+
+
 **Section:** 03-D
+
+
 **Course:** CAI601400 - Artificial Intelligence
 
 ## Labs
