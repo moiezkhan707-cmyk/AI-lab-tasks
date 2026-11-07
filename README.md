@@ -14,3 +14,4 @@
 ## Labs
 - [Lab 01](Lab01/): Introduction to AI & Paradigms
 - [Lab 02](Lab02/): Intelligent Agents & the PEAS Framework
+- [Lab 03](Lab03/): Uninformed Search
