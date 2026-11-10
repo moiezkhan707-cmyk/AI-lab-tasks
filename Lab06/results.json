@@ -1,0 +1,822 @@
+{
+ "env": {
+  "python": "3.12.16",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "embedding_available": true,
+  "sklearn": "1.9.1",
+  "numpy": "2.5.4",
+  "sentence_transformers": "6.2.0"
+ },
+ "doc_words": {
+  "late": 188,
+  "password": 188,
+  "assignment": 185,
+  "contractor": 176,
+  "printer": 172
+ },
+ "tokens": [
+  {
+   "text": "AI, search!",
+   "whitespace": [
+    "AI,",
+    "search!"
+   ],
+   "words": [
+    "AI",
+    "search"
+   ],
+   "model": [
+    "ai",
+    ",",
+    "search",
+    "!"
+   ]
+  },
+  {
+   "text": "I can't log in.",
+   "whitespace": [
+    "I",
+    "can't",
+    "log",
+    "in."
+   ],
+   "words": [
+    "I",
+    "can",
+    "t",
+    "log",
+    "in"
+   ],
+   "model": [
+    "i",
+    "can",
+    "'",
+    "t",
+    "log",
+    "in",
+    "."
+   ]
+  },
+  {
+   "text": "help@example.com",
+   "whitespace": [
+    "help@example.com"
+   ],
+   "words": [
+    "help",
+    "example",
+    "com"
+   ],
+   "model": null
+  },
+  {
+   "text": "CS4944",
+   "whitespace": [
+    "CS4944"
+   ],
+   "words": [
+    "CS4944"
+   ],
+   "model": null
+  },
+  {
+   "text": "",
+   "whitespace": [],
+   "words": [],
+   "model": null
+  },
+  {
+   "text": "یہ ایک مثال ہے",
+   "whitespace": [
+    "یہ",
+    "ایک",
+    "مثال",
+    "ہے"
+   ],
+   "words": [
+    "یہ",
+    "ایک",
+    "مثال",
+    "ہے"
+   ],
+   "model": null
+  }
+ ],
+ "faq": [
+  {
+   "query": "How do I reset my password?",
+   "reply": "Use the recovery link on the login page. [source: it_help.txt]"
+  },
+  {
+   "query": "password recovery",
+   "reply": "Possible matches; choose or rephrase your question:\nHow do I reset my password? (similarity 0.440)\nWhere do I submit my assignment? (similarity 0.000)\nCan illness justify a late submission? (similarity 0.000)"
+  },
+  {
+   "query": "Why is my printer blank?",
+   "reply": "Possible matches; choose or rephrase your question:\nWhy does my printer print blank pages? (similarity 0.502)\nHow do I reset my password? (similarity 0.075)\nWhere do I submit my assignment? (similarity 0.066)"
+  },
+  {
+   "query": "",
+   "reply": "Please enter a question."
+  },
+  {
+   "query": "volcano geology",
+   "reply": "No matching FAQ. Please contact the help desk."
+  }
+ ],
+ "suggestions": [
+  {
+   "question": "Where do I submit my assignment?",
+   "score": 0.5814676095011372
+  }
+ ],
+ "task2_tests": [
+  {
+   "name": "empty text gives no windows",
+   "passed": true
+  },
+  {
+   "name": "short document gives one window",
+   "passed": true
+  },
+  {
+   "name": "invalid overlap raises ValueError",
+   "passed": true
+  },
+  {
+   "name": "95-word sentence splits into 3 fallback windows (each <= 40 words)",
+   "passed": true
+  },
+  {
+   "name": "chunk text equals source[start:end] for every strategy",
+   "passed": true
+  }
+ ],
+ "task2_stats": [
+  {
+   "pair_survives": {
+    "late": false,
+    "password": false,
+    "assignment": false
+   },
+   "pairs_kept": 0,
+   "strategy": "0",
+   "name": "window-40 overlap 0",
+   "chunks": 15,
+   "mean_words": 37.4,
+   "min_words": 25,
+   "max_words": 40,
+   "duplicate_words": 0,
+   "evidence_survives": {
+    "late": true,
+    "password": true,
+    "assignment": true
+   },
+   "survived": 3,
+   "of": 3
+  },
+  {
+   "pair_survives": {
+    "late": false,
+    "password": false,
+    "assignment": false
+   },
+   "pairs_kept": 0,
+   "strategy": "10",
+   "name": "window-40 overlap 10",
+   "chunks": 18,
+   "mean_words": 39.5,
+   "min_words": 35,
+   "max_words": 40,
+   "duplicate_words": 150,
+   "evidence_survives": {
+    "late": true,
+    "password": true,
+    "assignment": true
+   },
+   "survived": 3,
+   "of": 3
+  },
+  {
+   "pair_survives": {
+    "late": true,
+    "password": false,
+    "assignment": false
+   },
+   "pairs_kept": 1,
+   "strategy": "sentence",
+   "name": "sentence-aware 40",
+   "chunks": 19,
+   "mean_words": 29.526315789473685,
+   "min_words": 16,
+   "max_words": 40,
+   "duplicate_words": 0,
+   "evidence_survives": {
+    "late": true,
+    "password": true,
+    "assignment": true
+   },
+   "survived": 3,
+   "of": 3
+  }
+ ],
+ "task2_semantic": [
+  {
+   "backend": "tfidf",
+   "query": "How can I regain access to my account?",
+   "target": "password",
+   "top3": [
+    {
+     "id": "password:0",
+     "score": 0.26473864446042417,
+     "start": 0,
+     "end": 207,
+     "has_evidence": true
+    },
+    {
+     "id": "password:3",
+     "score": 0.24000051782537152,
+     "start": 578,
+     "end": 748,
+     "has_evidence": false
+    },
+    {
+     "id": "assignment:3",
+     "score": 0.08891464465774801,
+     "start": 516,
+     "end": 738,
+     "has_evidence": false
+    }
+   ]
+  },
+  {
+   "backend": "tfidf",
+   "query": "What proof is needed when I was ill?",
+   "target": "late",
+   "top3": [
+    {
+     "id": "assignment:2",
+     "score": 0.23452452567652954,
+     "start": 332,
+     "end": 516,
+     "has_evidence": false
+    },
+    {
+     "id": "late:4",
+     "score": 0.1986985133771944,
+     "start": 737,
+     "end": 843,
+     "has_evidence": false
+    },
+    {
+     "id": "late:2",
+     "score": 0.1913015881417083,
+     "start": 363,
+     "end": 480,
+     "has_evidence": false
+    }
+   ]
+  },
+  {
+   "backend": "tfidf",
+   "query": "How should I hand in my coursework?",
+   "target": "assignment",
+   "top3": [
+    {
+     "id": "password:5",
+     "score": 0.14968492442096457,
+     "start": 951,
+     "end": 1151,
+     "has_evidence": false
+    },
+    {
+     "id": "assignment:0",
+     "score": 0.14477873070236466,
+     "start": 0,
+     "end": 189,
+     "has_evidence": true
+    },
+    {
+     "id": "assignment:4",
+     "score": 0.11682340701667797,
+     "start": 738,
+     "end": 966,
+     "has_evidence": false
+    }
+   ]
+  },
+  {
+   "backend": "embedding",
+   "query": "How can I regain access to my account?",
+   "target": "password",
+   "top3": [
+    {
+     "id": "password:2",
+     "score": 0.48072174191474915,
+     "start": 378,
+     "end": 578,
+     "has_evidence": false
+    },
+    {
+     "id": "password:3",
+     "score": 0.46184349060058594,
+     "start": 578,
+     "end": 748,
+     "has_evidence": false
+    },
+    {
+     "id": "password:4",
+     "score": 0.40603578090667725,
+     "start": 748,
+     "end": 951,
+     "has_evidence": false
+    }
+   ]
+  },
+  {
+   "backend": "embedding",
+   "query": "What proof is needed when I was ill?",
+   "target": "late",
+   "top3": [
+    {
+     "id": "late:2",
+     "score": 0.2670867145061493,
+     "start": 363,
+     "end": 480,
+     "has_evidence": false
+    },
+    {
+     "id": "late:1",
+     "score": 0.24075058102607727,
+     "start": 136,
+     "end": 363,
+     "has_evidence": true
+    },
+    {
+     "id": "late:4",
+     "score": 0.18133445084095,
+     "start": 737,
+     "end": 843,
+     "has_evidence": false
+    }
+   ]
+  },
+  {
+   "backend": "embedding",
+   "query": "How should I hand in my coursework?",
+   "target": "assignment",
+   "top3": [
+    {
+     "id": "assignment:0",
+     "score": 0.5251154899597168,
+     "start": 0,
+     "end": 189,
+     "has_evidence": true
+    },
+    {
+     "id": "late:0",
+     "score": 0.34305262565612793,
+     "start": 0,
+     "end": 136,
+     "has_evidence": false
+    },
+    {
+     "id": "late:4",
+     "score": 0.3019043207168579,
+     "start": 737,
+     "end": 843,
+     "has_evidence": false
+    }
+   ]
+  }
+ ],
+ "task3": {
+  "pair_counts": {
+   "0": 2,
+   "10": 2,
+   "sentence": 3
+  },
+  "model_load_s": 2.178952800051775,
+  "methods": [
+   "tfidf",
+   "embedding"
+  ],
+  "metrics": [
+   {
+    "strategy": "0",
+    "method": "tfidf",
+    "split": "dev",
+    "hit": 1.0,
+    "mrr": 1.0,
+    "chunks": 25,
+    "encode_s": 0.0029411999857984483,
+    "search_s": 0.0002093999646604061
+   },
+   {
+    "strategy": "0",
+    "method": "tfidf",
+    "split": "test",
+    "hit": 0.75,
+    "mrr": 0.5833333333333333,
+    "chunks": 25,
+    "encode_s": 0.0029411999857984483,
+    "search_s": 0.0002093999646604061
+   },
+   {
+    "strategy": "0",
+    "method": "embedding",
+    "split": "dev",
+    "hit": 0.75,
+    "mrr": 0.75,
+    "chunks": 25,
+    "encode_s": 0.21300950000295416,
+    "search_s": 7.080001523718238e-05
+   },
+   {
+    "strategy": "0",
+    "method": "embedding",
+    "split": "test",
+    "hit": 1.0,
+    "mrr": 0.875,
+    "chunks": 25,
+    "encode_s": 0.21300950000295416,
+    "search_s": 7.080001523718238e-05
+   },
+   {
+    "strategy": "10",
+    "method": "tfidf",
+    "split": "dev",
+    "hit": 1.0,
+    "mrr": 1.0,
+    "chunks": 30,
+    "encode_s": 0.0035056000342592597,
+    "search_s": 0.00017889996524900198
+   },
+   {
+    "strategy": "10",
+    "method": "tfidf",
+    "split": "test",
+    "hit": 0.75,
+    "mrr": 0.625,
+    "chunks": 30,
+    "encode_s": 0.0035056000342592597,
+    "search_s": 0.00017889996524900198
+   },
+   {
+    "strategy": "10",
+    "method": "embedding",
+    "split": "dev",
+    "hit": 0.75,
+    "mrr": 0.75,
+    "chunks": 30,
+    "encode_s": 0.27649590000510216,
+    "search_s": 5.540001438930631e-05
+   },
+   {
+    "strategy": "10",
+    "method": "embedding",
+    "split": "test",
+    "hit": 1.0,
+    "mrr": 0.8333333333333333,
+    "chunks": 30,
+    "encode_s": 0.27649590000510216,
+    "search_s": 5.540001438930631e-05
+   },
+   {
+    "strategy": "sentence",
+    "method": "tfidf",
+    "split": "dev",
+    "hit": 1.0,
+    "mrr": 1.0,
+    "chunks": 31,
+    "encode_s": 0.00360029999865219,
+    "search_s": 0.00016110000433400273
+   },
+   {
+    "strategy": "sentence",
+    "method": "tfidf",
+    "split": "test",
+    "hit": 0.75,
+    "mrr": 0.625,
+    "chunks": 31,
+    "encode_s": 0.00360029999865219,
+    "search_s": 0.00016110000433400273
+   },
+   {
+    "strategy": "sentence",
+    "method": "embedding",
+    "split": "dev",
+    "hit": 1.0,
+    "mrr": 0.875,
+    "chunks": 31,
+    "encode_s": 0.24151419999543577,
+    "search_s": 3.689998993650079e-05
+   },
+   {
+    "strategy": "sentence",
+    "method": "embedding",
+    "split": "test",
+    "hit": 1.0,
+    "mrr": 0.75,
+    "chunks": 31,
+    "encode_s": 0.24151419999543577,
+    "search_s": 3.689998993650079e-05
+   }
+  ],
+  "selected": {
+   "tfidf": {
+    "strategy": "sentence",
+    "dev_hit": 1.0,
+    "dev_mrr": 1.0,
+    "test_hit": 0.75,
+    "test_mrr": 0.625
+   },
+   "embedding": {
+    "strategy": "sentence",
+    "dev_hit": 1.0,
+    "dev_mrr": 0.875,
+    "test_hit": 1.0,
+    "test_mrr": 0.75
+   }
+  },
+  "failures": [
+   {
+    "strategy": "0",
+    "method": "tfidf",
+    "query": "What proof is needed when I was ill?",
+    "split": "test",
+    "expected_doc": "late",
+    "top1": "assignment:1",
+    "score": 0.266516887914353,
+    "top1_text": "and records the exact time of upload, which is used to decide whether a submission is on time. Email submissions are accepted only when the portal is unavailable and the coordinator has announced this in writing, and a screenshot of",
+    "evidence_chunks": [
+     "late:1"
+    ]
+   },
+   {
+    "strategy": "0",
+    "method": "embedding",
+    "query": "How do I reset a forgotten password?",
+    "split": "dev",
+    "expected_doc": "password",
+    "top1": "password:1",
+    "score": 0.5034159421920776,
+    "top1_text": "email address registered during admission and expires after thirty minutes, so it should be used immediately. Never share recovery codes. Staff accounts follow a different process: a staff member who forgets a password must contact the help desk in person",
+    "evidence_chunks": [
+     "password:0"
+    ]
+   },
+   {
+    "strategy": "10",
+    "method": "tfidf",
+    "query": "What proof is needed when I was ill?",
+    "split": "test",
+    "expected_doc": "late",
+    "top1": "assignment:1",
+    "score": 0.24160987504360143,
+    "top1_text": "course code. The portal accepts files up to twenty megabytes and records the exact time of upload, which is used to decide whether a submission is on time. Email submissions are accepted only when the portal is unavailable and the",
+    "evidence_chunks": [
+     "late:1"
+    ]
+   },
+   {
+    "strategy": "10",
+    "method": "embedding",
+    "query": "How do I reset a forgotten password?",
+    "split": "dev",
+    "expected_doc": "password",
+    "top1": "password:2",
+    "score": 0.5920428037643433,
+    "top1_text": "Staff accounts follow a different process: a staff member who forgets a password must contact the help desk in person with an identity card, and the recovery link is not available for staff accounts. If a student has lost access",
+    "evidence_chunks": [
+     "password:0"
+    ]
+   },
+   {
+    "strategy": "sentence",
+    "method": "tfidf",
+    "query": "What proof is needed when I was ill?",
+    "split": "test",
+    "expected_doc": "late",
+    "top1": "assignment:2",
+    "score": 0.2147741708821697,
+    "top1_text": "Email submissions are accepted only when the portal is unavailable and the coordinator has announced this in writing, and a screenshot of the error does not replace that announcement. ",
+    "evidence_chunks": [
+     "late:1"
+    ]
+   }
+  ],
+  "unanswerable": [
+   {
+    "strategy": "0",
+    "method": "tfidf",
+    "query": "What are tomorrow's flight prices?",
+    "top1": "late:4",
+    "score": 0.2718024343361073,
+    "text": "to the whole group only when every member has valid evidence. All dates and penalties in this document are synthetic teaching data and are not real university policy."
+   },
+   {
+    "strategy": "0",
+    "method": "tfidf",
+    "query": "Who won the football match?",
+    "top1": "late:1",
+    "score": 0.20036096640176643,
+    "text": "five days after which no marks are awarded. Illness extensions require medical evidence before the deadline. Evidence submitted after the deadline is reviewed only by the examination committee, and approval is not guaranteed. Students who cannot meet a deadline because"
+   },
+   {
+    "strategy": "0",
+    "method": "embedding",
+    "query": "What are tomorrow's flight prices?",
+    "top1": "late:3",
+    "score": 0.07082943618297577,
+    "text": "student later provides a convincing explanation of the circumstances. Extensions for travel, work or other planned activities are not granted. A granted extension never changes the deadline of other students. Group assignments follow the same rules, and one extension applies"
+   },
+   {
+    "strategy": "0",
+    "method": "embedding",
+    "query": "Who won the football match?",
+    "top1": "late:1",
+    "score": 0.06577405333518982,
+    "text": "five days after which no marks are awarded. Illness extensions require medical evidence before the deadline. Evidence submitted after the deadline is reviewed only by the examination committee, and approval is not guaranteed. Students who cannot meet a deadline because"
+   },
+   {
+    "strategy": "10",
+    "method": "tfidf",
+    "query": "What are tomorrow's flight prices?",
+    "top1": "late:5",
+    "score": 0.21570198163030183,
+    "text": "Group assignments follow the same rules, and one extension applies to the whole group only when every member has valid evidence. All dates and penalties in this document are synthetic teaching data and are not real university policy."
+   },
+   {
+    "strategy": "10",
+    "method": "tfidf",
+    "query": "Who won the football match?",
+    "top1": "late:2",
+    "score": 0.21683375837850222,
+    "text": "deadline is reviewed only by the examination committee, and approval is not guaranteed. Students who cannot meet a deadline because of a personal emergency should contact the course coordinator as early as possible, because requests that arrive after the work"
+   },
+   {
+    "strategy": "10",
+    "method": "embedding",
+    "query": "What are tomorrow's flight prices?",
+    "top1": "late:4",
+    "score": 0.07082943618297577,
+    "text": "student later provides a convincing explanation of the circumstances. Extensions for travel, work or other planned activities are not granted. A granted extension never changes the deadline of other students. Group assignments follow the same rules, and one extension applies"
+   },
+   {
+    "strategy": "10",
+    "method": "embedding",
+    "query": "Who won the football match?",
+    "top1": "password:1",
+    "score": 0.07954452931880951,
+    "text": "the recovery link. The link is sent to the personal email address registered during admission and expires after thirty minutes, so it should be used immediately. Never share recovery codes. Staff accounts follow a different process: a staff member who"
+   },
+   {
+    "strategy": "sentence",
+    "method": "tfidf",
+    "query": "What are tomorrow's flight prices?",
+    "top1": "late:6",
+    "score": 0.2244795502591383,
+    "text": "Group assignments follow the same rules, and one extension applies to the whole group only when every member has valid evidence. All dates and penalties in this document are synthetic teaching data and are not real university policy."
+   },
+   {
+    "strategy": "sentence",
+    "method": "tfidf",
+    "query": "Who won the football match?",
+    "top1": "password:2",
+    "score": 0.19590905003645265,
+    "text": "Staff accounts follow a different process: a staff member who forgets a password must contact the help desk in person with an identity card, and the recovery link is not available for staff accounts. "
+   },
+   {
+    "strategy": "sentence",
+    "method": "embedding",
+    "query": "What are tomorrow's flight prices?",
+    "top1": "late:5",
+    "score": 0.08568625152111053,
+    "text": "Extensions for travel, work or other planned activities are not granted. A granted extension never changes the deadline of other students. "
+   },
+   {
+    "strategy": "sentence",
+    "method": "embedding",
+    "query": "Who won the football match?",
+    "top1": "password:1",
+    "score": 0.06992913782596588,
+    "text": "The link is sent to the personal email address registered during admission and expires after thirty minutes, so it should be used immediately. Never share recovery codes. "
+   }
+  ],
+  "token_audit": [
+   {
+    "strategy": "0",
+    "max_tokens": 54,
+    "limit": 256,
+    "fits": true
+   },
+   {
+    "strategy": "10",
+    "max_tokens": 54,
+    "limit": 256,
+    "fits": true
+   },
+   {
+    "strategy": "sentence",
+    "max_tokens": 50,
+    "limit": 256,
+    "fits": true
+   }
+  ]
+ },
+ "docbot": {
+  "strategy": "sentence",
+  "backend": "embedding",
+  "transcript": [
+   {
+    "query": "Can contractors work remotely?",
+    "choice": "1",
+    "lines": [
+     "Candidate evidence; relevance must be checked:",
+     "1 contractor:0 0.756 characters 0 251",
+     "2 contractor:4 0.639 characters 756 936",
+     "3 contractor:1 0.573 characters 251 439",
+     "Retrieved passage: Workplace policy on remote work. Employees may request remote work with manager approval, and the approval is reviewed every six months. Contractors can work remotely only if the signed contract permits it. Employee rules do not apply to contractors. ",
+     "Source: contractor characters 0 251"
+    ]
+   },
+   {
+    "query": "What proof is needed when I was ill?",
+    "choice": "1",
+    "lines": [
+     "Candidate evidence; relevance must be checked:",
+     "1 late:2 0.267 characters 363 480",
+     "2 late:1 0.241 characters 136 363",
+     "3 late:4 0.181 characters 737 843",
+     "Retrieved passage: Evidence submitted after the deadline is reviewed only by the examination committee, and approval is not guaranteed. ",
+     "Source: late characters 363 480"
+    ]
+   },
+   {
+    "query": "",
+    "choice": "",
+    "lines": [
+     "No candidate evidence; rephrase or contact a human."
+    ]
+   },
+   {
+    "query": "What are tomorrow's flight prices?",
+    "choice": "",
+    "lines": [
+     "Candidate evidence; relevance must be checked:",
+     "1 late:5 0.086 characters 844 983",
+     "2 contractor:2 0.074 characters 439 632",
+     "3 late:1 0.050 characters 136 363",
+     "No answer selected. Rephrase or contact a human."
+    ]
+   }
+  ]
+ },
+ "scenarios": [
+  {
+   "scenario": "1 handbook",
+   "query": "illness medical evidence late submission",
+   "filters": null,
+   "result": "assessment:late",
+   "expected": "assessment:late"
+  },
+  {
+   "scenario": "2 support",
+   "query": "damaged parcel photographs",
+   "filters": {
+    "region": "PK"
+   },
+   "result": "returns:damage",
+   "expected": "returns:damage"
+  },
+  {
+   "scenario": "3 docs",
+   "query": "renew expired API token",
+   "filters": {
+    "version": "v2"
+   },
+   "result": "auth:v2",
+   "expected": "auth:v2"
+  },
+  {
+   "scenario": "4 workplace",
+   "query": "remote work",
+   "filters": {
+    "audience": "contractor"
+   },
+   "result": "remote:contractor",
+   "expected": "remote:contractor"
+  },
+  {
+   "scenario": "5 equipment",
+   "query": "blank pages",
+   "filters": {
+    "device": "printer"
+   },
+   "result": "printer:blank",
+   "expected": "printer:blank"
+  }
+ ]
+}
