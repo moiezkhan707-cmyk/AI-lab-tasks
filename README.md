@@ -18,4 +18,3 @@
 - [Lab 04](Lab04/): Informed Search, Heuristics & A*
 - [Lab 05](Lab05/): Adversarial Search: Minimax & Alpha-Beta Pruning
   [Lab 06](Lab06/): Tokenization, Embeddings & Text Chunking
-   
